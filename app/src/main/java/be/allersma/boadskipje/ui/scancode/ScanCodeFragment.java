@@ -41,18 +41,10 @@ import java.util.concurrent.Executors;
 public class ScanCodeFragment extends Fragment {
 
     private FragmentScanCodeBinding binding;
-
-    // CameraX
-    private ImageCapture imageCapture;
-    private VideoCapture videoCapture;
-    private Recording recording;
     private ExecutorService cameraExecutor;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ScanCodeViewModel scanCodeViewModel =
-                new ViewModelProvider(this).get(ScanCodeViewModel.class);
-
         binding = FragmentScanCodeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
@@ -60,12 +52,7 @@ public class ScanCodeFragment extends Fragment {
         allPermissionsGranted();
         startCamera();
 
-        // Set up the listeners for take photo and video capture buttons
-        binding.imageCaptureButton.setOnClickListener(view -> takePhoto());
-        binding.videoCaptureButton.setOnClickListener(view -> captureVideo());
-
         cameraExecutor = Executors.newSingleThreadExecutor();
-
         // End my code
 
         return root;
@@ -76,10 +63,6 @@ public class ScanCodeFragment extends Fragment {
         super.onDestroy();
         cameraExecutor.shutdown();
     }
-
-    private void takePhoto() {}
-
-    private void captureVideo() {}
 
     private void startCamera() {
         ListenableFuture<ProcessCameraProvider> listenableFuture = ProcessCameraProvider.getInstance(getActivity());
