@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Boadskipje</string>
+    <string name="title_add">Toevoegen</string>
+    <string name="title_scan_code">Scan barcode</string>
+</resources>
