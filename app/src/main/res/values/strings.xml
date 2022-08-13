@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Boadskipje</string>
-    <string name="title_add">Toevoegen</string>
+    <string name="title_list">List</string>
     <string name="title_scan_code">Scan barcode</string>
+    <string name="boadskip">Boadskip</string>
+    <string name="add_boadskip">Boadskip tafoegje</string>
+    <string name="add">Tafoegje</string>
 </resources>

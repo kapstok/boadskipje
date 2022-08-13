@@ -46,6 +46,7 @@ public class BarcodeAnalyzer implements ImageAnalysis.Analyzer {
                 .addOnSuccessListener(barcodes -> {
                     for (Barcode barcode : barcodes) {
                         String value = barcode.getRawValue();
+                        BoadskipjeList.addBoadskip(value);
                         Toast.makeText(context, value, Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(e -> {

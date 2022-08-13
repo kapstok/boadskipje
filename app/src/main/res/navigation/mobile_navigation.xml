@@ -7,9 +7,9 @@
 
     <fragment
             android:id="@+id/navigation_home"
-            android:name="be.allersma.boadskipje.ui.add.AddFragment"
-            android:label="@string/title_add"
-            tools:layout="@layout/fragment_add"/>
+            android:name="be.allersma.boadskipje.ui.list.ListFragment"
+            android:label="@string/title_list"
+            tools:layout="@layout/fragment_list"/>
 
     <fragment
             android:id="@+id/navigation_dashboard"

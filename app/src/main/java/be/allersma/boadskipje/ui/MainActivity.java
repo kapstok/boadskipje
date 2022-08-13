@@ -1,6 +1,7 @@
-package be.allersma.boadskipje;
+package be.allersma.boadskipje.ui;
 
 import android.os.Bundle;
+import be.allersma.boadskipje.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
