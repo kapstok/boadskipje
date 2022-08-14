@@ -1,11 +1,16 @@
 package be.allersma.boadskipje;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageProxy;
+import be.allersma.boadskipje.persistence.BarcodeRegister;
+import be.allersma.boadskipje.ui.AddCodeActivity;
 import com.google.android.gms.tasks.Task;
 import com.google.mlkit.vision.barcode.BarcodeScanner;
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions;
@@ -15,12 +20,15 @@ import com.google.mlkit.vision.common.InputImage;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.Map;
 
 public class BarcodeAnalyzer implements ImageAnalysis.Analyzer {
-    Context context;
+    Activity activity;
+    BarcodeRegister register;
 
-    public BarcodeAnalyzer(Context context) {
-        this.context = context;
+    public BarcodeAnalyzer(Activity activity) {
+        this.activity = activity;
+        this.register = new BarcodeRegister(activity);
     }
 
     @Override
@@ -45,9 +53,18 @@ public class BarcodeAnalyzer implements ImageAnalysis.Analyzer {
         Task<List<Barcode>> result = scanner.process(image)
                 .addOnSuccessListener(barcodes -> {
                     for (Barcode barcode : barcodes) {
+                        MediaPlayer mediaPlayer = MediaPlayer.create(activity, R.raw.bliep);
+                        mediaPlayer.start();
                         String value = barcode.getRawValue();
-                        BoadskipjeList.addBoadskip(value);
-                        Toast.makeText(context, value, Toast.LENGTH_SHORT).show();
+                        Map<String, String> register = this.register.getRegister(activity);
+
+                        if (register.containsKey(value)) {
+                            BoadskipjeList.addBoadskip(register.get(value));
+                        } else {
+                            Intent intent = new Intent(activity, AddCodeActivity.class);
+                            intent.putExtra("code", value);
+                            activity.startActivity(intent);
+                        }
                     }
                 }).addOnFailureListener(e -> {
                     // No-op

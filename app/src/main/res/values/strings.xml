@@ -5,4 +5,7 @@
     <string name="boadskip">Boadskip</string>
     <string name="add_boadskip">Boadskip tafoegje</string>
     <string name="add">Tafoegje</string>
+    <string name="couple_code">Code keppelje</string>
+    <string name="couple">Keppelje</string>
+    <string name="code">Code:</string>
 </resources>

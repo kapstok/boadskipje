@@ -13,9 +13,6 @@ import be.allersma.boadskipje.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    public static final int CAMERA_CODE = 100;
-    public static final int RECORD_AUDIO = 101;
-    public static final int WRITE_EXTERNAL_STORAGE = 102;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

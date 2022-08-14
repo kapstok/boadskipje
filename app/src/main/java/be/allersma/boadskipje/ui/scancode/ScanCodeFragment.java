@@ -13,6 +13,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import be.allersma.boadskipje.BarcodeAnalyzer;
+import be.allersma.boadskipje.Permissions;
 import be.allersma.boadskipje.ui.MainActivity;
 import be.allersma.boadskipje.databinding.FragmentScanCodeBinding;
 import com.google.common.util.concurrent.ListenableFuture;
@@ -71,17 +72,9 @@ public class ScanCodeFragment extends Fragment {
     }
 
     private void allPermissionsGranted() {
-        checkPermission(Manifest.permission.CAMERA, MainActivity.CAMERA_CODE);
-        checkPermission(Manifest.permission.RECORD_AUDIO, MainActivity.RECORD_AUDIO);
-        checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, MainActivity.WRITE_EXTERNAL_STORAGE);
-    }
-
-    private boolean checkPermission(String permission, int requestCode) {
-        if (ContextCompat.checkSelfPermission(getActivity(), permission) == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(getActivity(), new String[] { permission }, requestCode);
-            return checkPermission(permission, requestCode);
-        }
-        return true;
+        Permissions.checkPermission(getActivity(), Manifest.permission.CAMERA, Permissions.CAMERA_CODE);
+        Permissions.checkPermission(getActivity(), Manifest.permission.RECORD_AUDIO, Permissions.RECORD_AUDIO);
+        Permissions.checkPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE, Permissions.WRITE_EXTERNAL_STORAGE);
     }
 
     @Override
