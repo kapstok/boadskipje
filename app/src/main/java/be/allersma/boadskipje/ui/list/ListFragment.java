@@ -4,14 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Debug;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -65,11 +64,17 @@ public class ListFragment extends Fragment {
 
         TextView minButton = createClickableText(context, "-", view -> {
             BoadskipjeList.removeBoadskip(boadskip);
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, this.getClass(), null).commit();
+            //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, this.getClass(), null).commit();
+            getActivity().finish();
+            startActivity(getActivity().getIntent());
+            getActivity().overridePendingTransition(0,0);
         });
         TextView plusButton = createClickableText(context, "+", view -> {
             BoadskipjeList.addBoadskip(boadskip);
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, this.getClass(), null).commit();
+            //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, this.getClass(), null).commit();
+            getActivity().finish();
+            startActivity(getActivity().getIntent());
+            getActivity().overridePendingTransition(0,0);
         });
         TextView message = createMessage(context, boadskip);
         layout.addView(minButton);
