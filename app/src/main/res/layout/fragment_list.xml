@@ -6,6 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
+        android:id="@+id/coordinatorlayout"
         tools:context=".ui.list.ListFragment">
 
     <ScrollView
@@ -25,9 +26,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginTop="16dp"
             android:backgroundTint="@color/foreground"
+            app:layout_anchor="@id/item_list"
+            app:layout_anchorGravity="bottom|end"
             app:tint="@color/white"
-            app:srcCompat="@android:drawable/ic_input_add" android:contentDescription="@string/add_boadskip"/>
+            app:srcCompat="@android:drawable/ic_input_add"
+            android:contentDescription="@string/add_boadskip"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

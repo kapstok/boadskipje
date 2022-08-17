@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import androidx.annotation.NonNull;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -19,6 +20,7 @@ import be.allersma.boadskipje.BoadskipjeList;
 import be.allersma.boadskipje.R;
 import be.allersma.boadskipje.databinding.FragmentListBinding;
 import be.allersma.boadskipje.ui.AddItemActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Map;
@@ -64,17 +66,17 @@ public class ListFragment extends Fragment {
 
         TextView minButton = createClickableText(context, "-", view -> {
             BoadskipjeList.removeBoadskip(boadskip);
-            //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, this.getClass(), null).commit();
-            getActivity().finish();
-            startActivity(getActivity().getIntent());
-            getActivity().overridePendingTransition(0,0);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, this.getClass(), null).commit();
+            //getActivity().finish();
+            //startActivity(getActivity().getIntent());
+            //getActivity().overridePendingTransition(0,0);
         });
         TextView plusButton = createClickableText(context, "+", view -> {
             BoadskipjeList.addBoadskip(boadskip);
-            //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, this.getClass(), null).commit();
-            getActivity().finish();
-            startActivity(getActivity().getIntent());
-            getActivity().overridePendingTransition(0,0);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, this.getClass(), null).commit();
+            //getActivity().finish();
+            //startActivity(getActivity().getIntent());
+            //getActivity().overridePendingTransition(0,0);
         });
         TextView message = createMessage(context, boadskip);
         layout.addView(minButton);
