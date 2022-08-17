@@ -10,4 +10,9 @@
             android:id="@+id/navigation_dashboard"
             android:icon="@drawable/barcode"
             android:title="@string/title_scan_code"/>
+
+    <item
+            android:id="@+id/navigation_foardiel"
+            android:icon="@drawable/foardiel"
+            android:title="@string/title_foardiel"/>
 </menu>

@@ -16,4 +16,10 @@
             android:name="be.allersma.boadskipje.ui.scancode.ScanCodeFragment"
             android:label="@string/title_scan_code"
             tools:layout="@layout/fragment_scan_code"/>
+
+    <fragment
+            android:id="@+id/navigation_foardiel"
+            android:name="be.allersma.boadskipje.ui.foardiel.FoardielFragment"
+            android:label="@string/title_foardiel"
+            tools:layout="@layout/fragment_foardiel"/>
 </navigation>

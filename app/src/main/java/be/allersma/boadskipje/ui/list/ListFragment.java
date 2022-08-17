@@ -32,7 +32,8 @@ public class ListFragment extends Fragment {
     private FragmentListBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+                             ViewGroup container,
+                             Bundle savedInstanceState) {
         ListViewModel listViewModel =
                 new ViewModelProvider(this).get(ListViewModel.class);
 

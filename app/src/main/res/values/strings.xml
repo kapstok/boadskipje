@@ -6,6 +6,7 @@
     <!-- MainActivity -->
     <string name="title_list">List</string>
     <string name="title_scan_code">Scan barcode</string>
+    <string name="title_foardiel">Foardiel</string>
 
     <!-- AddItemActivity -->
     <string name="add_boadskip">Boadskip tafoegje</string>

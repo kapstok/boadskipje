@@ -1,6 +1,5 @@
 package be.allersma.boadskipje.persistence;
 
-import android.app.Activity;
 import android.content.Context;
 import android.widget.Toast;
 import com.opencsv.CSVReader;
@@ -10,13 +9,12 @@ import com.opencsv.exceptions.CsvValidationException;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
-public class BarcodeRegister {
+public class FoardielRegister {
     private Map<String, String> register = null;
-    private final String CSV_NAME = "barcodes.csv";
+    private final String CSV_NAME = "foardiel.csv";
 
-    public BarcodeRegister() {}
+    public FoardielRegister() {}
 
     public Map<String, String> getRegister(Context context) {
         if (register == null) {
@@ -26,15 +24,15 @@ public class BarcodeRegister {
         return register;
     }
 
-    public void addToRegister(Context context, String code, String boadskip) {
+    public void addToRegister(Context context, String name, String code) {
         if (register == null) {
             register = loadRegister(context);
         }
-        if (register.containsKey(code)) {
+        if (register.containsKey(name)) {
             return;
         }
 
-        register.put(code, boadskip);
+        register.put(name, code);
         saveRegister(context);
     }
 
@@ -66,13 +64,15 @@ public class BarcodeRegister {
     private Map<String, String> createNewRegister(Context context) {
         try {
             OutputStreamWriter writer = new OutputStreamWriter(context.openFileOutput(CSV_NAME, Context.MODE_PRIVATE));
-            writer.write("");
+            writer.write("\"AH Bonuskaart\", \"2610400000012\"\n");
             writer.flush();
             writer.close();
         } catch (IOException e) {
-            Toast.makeText(context, "Barcode register oanmeitsjen mislearre", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Foardiel register oanmeitsjen mislearre", Toast.LENGTH_LONG).show();
         }
-        return new HashMap<>();
+        Map<String, String> result = new HashMap<>();
+        result.put("AH Bonuskaart", "2610400000012");
+        return result;
     }
 
     private void saveRegister(Context context) {
@@ -87,9 +87,9 @@ public class BarcodeRegister {
 
             writer.close();
         } catch (FileNotFoundException e) {
-            Toast.makeText(context, "Barcode register net fûn", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Foardiel register net fûn", Toast.LENGTH_LONG).show();
         } catch (IOException e) {
-            Toast.makeText(context, "Barcode register is net jildich", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Foardiel register is net jildich", Toast.LENGTH_LONG).show();
         }
     }
 }
