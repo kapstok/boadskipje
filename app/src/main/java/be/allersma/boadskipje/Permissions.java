@@ -13,11 +13,15 @@ public class Permissions {
 
     private Permissions() {} // Singleton
 
-    public static boolean checkPermission(Activity activity, String permission, int requestCode) {
-        if (ContextCompat.checkSelfPermission(activity, permission) == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(activity, new String[] { permission }, requestCode);
-            return checkPermission(activity, permission, requestCode);
-        }
-        return true;
+    public static boolean checkPermission(Activity activity, String permission) {
+        return ContextCompat.checkSelfPermission(activity, permission) != PackageManager.PERMISSION_DENIED;
+    }
+
+    public static boolean checkPermission(Activity activity, String permission, int foobar) {
+        return ContextCompat.checkSelfPermission(activity, permission) != PackageManager.PERMISSION_DENIED;
+    }
+
+    public static void requestPermission(Activity activity, String permission, int requestCode) {
+        ActivityCompat.requestPermissions(activity, new String[] { permission }, requestCode);
     }
 }

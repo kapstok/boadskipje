@@ -25,6 +25,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Map;
 
+import static be.allersma.boadskipje.ui.Util.dpToPixels;
+
 public class ListFragment extends Fragment {
 
     private FragmentListBinding binding;
@@ -137,13 +139,5 @@ public class ListFragment extends Fragment {
         textView.setPadding(padding, padding, padding, padding);
 
         return textView;
-    }
-
-    private int dpToPixels(Context context, int dp) {
-        return (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                dp,
-                context.getResources().getDisplayMetrics()
-        );
     }
 }
