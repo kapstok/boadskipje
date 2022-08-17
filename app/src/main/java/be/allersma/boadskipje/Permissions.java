@@ -16,10 +16,6 @@ public class Permissions {
         return ContextCompat.checkSelfPermission(activity, permission) != PackageManager.PERMISSION_DENIED;
     }
 
-    public static boolean checkPermission(Activity activity, String permission, int foobar) {
-        return ContextCompat.checkSelfPermission(activity, permission) != PackageManager.PERMISSION_DENIED;
-    }
-
     public static void requestPermission(Activity activity, String permission, int requestCode) {
         ActivityCompat.requestPermissions(activity, new String[] { permission }, requestCode);
     }

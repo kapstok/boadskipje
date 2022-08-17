@@ -1,6 +1,7 @@
 package be.allersma.boadskipje.ui.scancode;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -72,9 +73,14 @@ public class ScanCodeFragment extends Fragment {
     }
 
     private void allPermissionsGranted() {
-        Permissions.checkPermission(getActivity(), Manifest.permission.CAMERA, Permissions.CAMERA_CODE);
-        Permissions.checkPermission(getActivity(), Manifest.permission.RECORD_AUDIO, Permissions.RECORD_AUDIO);
-        Permissions.checkPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE, Permissions.WRITE_EXTERNAL_STORAGE);
+        boolean necessaryPermissionsGranted;
+        necessaryPermissionsGranted = Permissions.checkPermission(getActivity(), Manifest.permission.CAMERA);
+        necessaryPermissionsGranted &= Permissions.checkPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (!necessaryPermissionsGranted) {
+            Intent intent = new Intent(getActivity(), Permissions.class);
+            startActivity(intent);
+        }
     }
 
     @Override

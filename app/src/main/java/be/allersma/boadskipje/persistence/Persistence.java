@@ -3,9 +3,11 @@ package be.allersma.boadskipje.persistence;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 import be.allersma.boadskipje.Permissions;
+import be.allersma.boadskipje.ui.PermissionActivity;
 
 import java.io.*;
 
@@ -53,7 +55,13 @@ public class Persistence {
     }
 
     protected void allPermissionsGranted(Activity activity) {
-        Permissions.checkPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE, Permissions.WRITE_EXTERNAL_STORAGE);
-        Permissions.checkPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE, Permissions.READ_EXTERNAL_STORAGE);
+        boolean necessaryPermissionsGranted;
+        necessaryPermissionsGranted = Permissions.checkPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        necessaryPermissionsGranted &= Permissions.checkPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE);
+
+        if (!necessaryPermissionsGranted) {
+            Intent intent = new Intent(activity, PermissionActivity.class);
+            activity.startActivity(intent);
+        }
     }
 }
