@@ -53,15 +53,4 @@ public class Persistence {
             Log.e("Exception", e.getMessage());
         }
     }
-
-    protected void allPermissionsGranted(Activity activity) {
-        boolean necessaryPermissionsGranted;
-        necessaryPermissionsGranted = Permissions.checkPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        necessaryPermissionsGranted &= Permissions.checkPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE);
-
-        if (!necessaryPermissionsGranted) {
-            Intent intent = new Intent(activity, PermissionActivity.class);
-            activity.startActivity(intent);
-        }
-    }
 }

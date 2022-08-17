@@ -28,7 +28,7 @@ public class BarcodeAnalyzer implements ImageAnalysis.Analyzer {
 
     public BarcodeAnalyzer(Activity activity) {
         this.activity = activity;
-        this.register = new BarcodeRegister(activity);
+        this.register = new BarcodeRegister();
     }
 
     @Override

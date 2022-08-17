@@ -32,7 +32,7 @@ public class AddCodeActivity extends AppCompatActivity {
 
             if (newItemElement.getText() != null && !newItemElement.getText().toString().trim().isEmpty()) {
                 String boadskip = newItemElement.getText().toString();
-                BarcodeRegister register = new BarcodeRegister(this);
+                BarcodeRegister register = new BarcodeRegister();
                 register.addToRegister(this, scannedCode, boadskip);
                 BoadskipjeList.addBoadskip(boadskip);
             }

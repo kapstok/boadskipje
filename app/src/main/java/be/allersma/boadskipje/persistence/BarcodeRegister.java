@@ -12,12 +12,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class BarcodeRegister extends Persistence {
+public class BarcodeRegister {
     private Map<String, String> register = null;
     private final String CSV_NAME = "barcodes.csv";
 
-    public BarcodeRegister(Activity activity) {
-        allPermissionsGranted(activity);
+    public BarcodeRegister() {
     }
 
     public Map<String, String> getRegister(Context context) {

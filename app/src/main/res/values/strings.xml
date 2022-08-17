@@ -20,9 +20,9 @@
     <string name="permissions">Tastimmingen</string>
     <string name="ask_permission">Tastimming freegje</string>
     <string name="permission_granted">✓ Tastimming kriget</string>
-    <string name="correct_function">Foar korrekte wurking fan \'e app</string>
+<!--    <string name="correct_function">Foar korrekte wurking fan \'e app</string>-->
     <string name="use_scanner">Foardat gebrûk fan \'e scanner</string>
-    <string name="permission_read_external_storage">Bestânnen lêze</string>
-    <string name="permission_write_external_storage">Bestânnen skriuwe</string>
+<!--    <string name="permission_read_external_storage">Bestânnen lêze</string>-->
+<!--    <string name="permission_write_external_storage">Bestânnen skriuwe</string>-->
     <string name="permission_use_camera">Camera</string>
 </resources>

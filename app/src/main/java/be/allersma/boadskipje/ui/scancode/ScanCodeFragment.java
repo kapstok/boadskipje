@@ -17,6 +17,7 @@ import be.allersma.boadskipje.BarcodeAnalyzer;
 import be.allersma.boadskipje.Permissions;
 import be.allersma.boadskipje.ui.MainActivity;
 import be.allersma.boadskipje.databinding.FragmentScanCodeBinding;
+import be.allersma.boadskipje.ui.PermissionActivity;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
@@ -75,10 +76,9 @@ public class ScanCodeFragment extends Fragment {
     private void allPermissionsGranted() {
         boolean necessaryPermissionsGranted;
         necessaryPermissionsGranted = Permissions.checkPermission(getActivity(), Manifest.permission.CAMERA);
-        necessaryPermissionsGranted &= Permissions.checkPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         if (!necessaryPermissionsGranted) {
-            Intent intent = new Intent(getActivity(), Permissions.class);
+            Intent intent = new Intent(getActivity(), PermissionActivity.class);
             startActivity(intent);
         }
     }

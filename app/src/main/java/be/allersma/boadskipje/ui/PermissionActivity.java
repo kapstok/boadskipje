@@ -26,20 +26,6 @@ public class PermissionActivity extends AppCompatActivity {
     }
 
     private void addLogicToAllButtons(boolean invalidate) {
-        TextView readExternalStorage = findViewById(R.id.read_external_storage_permission_button);
-        addLogicToButton(readExternalStorage,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Permissions.READ_EXTERNAL_STORAGE
-        );
-        if (invalidate) readExternalStorage.invalidate();
-
-        TextView writeExternalStorage = findViewById(R.id.write_external_storage_permission_button);
-        addLogicToButton(writeExternalStorage,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Permissions.WRITE_EXTERNAL_STORAGE
-        );
-        if (invalidate) writeExternalStorage.invalidate();
-
         TextView useCamera = findViewById(R.id.use_camera_permission_button);
         addLogicToButton(useCamera,
                 Manifest.permission.CAMERA,
