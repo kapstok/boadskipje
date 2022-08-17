@@ -7,7 +7,6 @@ import androidx.core.content.ContextCompat;
 
 public class Permissions {
     public static final int CAMERA_CODE = 100;
-    public static final int RECORD_AUDIO = 101;
     public static final int WRITE_EXTERNAL_STORAGE = 102;
     public static final int READ_EXTERNAL_STORAGE = 103;
 

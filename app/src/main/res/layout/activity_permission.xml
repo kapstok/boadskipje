@@ -99,23 +99,5 @@
                       android:layout_weight="2"
                       android:id="@+id/use_camera_permission_button"/>
         </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
-            <TextView android:layout_width="0dp"
-                      android:layout_height="wrap_content"
-                      android:layout_weight="1"
-                      android:layout_marginStart="30dp"
-                      android:text="@string/permission_record_audio"/>
-            <TextView android:layout_width="0dp"
-                      android:layout_height="wrap_content"
-                      android:text="@string/ask_permission"
-                      android:layout_marginEnd="30dp"
-                      android:textAlignment="textEnd"
-                      android:layout_weight="2"
-                      android:id="@+id/record_audio_permission_button"/>
-        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

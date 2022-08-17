@@ -46,13 +46,6 @@ public class PermissionActivity extends AppCompatActivity {
                 Permissions.CAMERA_CODE
         );
         if (invalidate) useCamera.invalidate();
-
-        TextView recordAudio = findViewById(R.id.record_audio_permission_button);
-        addLogicToButton(recordAudio,
-                Manifest.permission.RECORD_AUDIO,
-                Permissions.RECORD_AUDIO
-        );
-        if (invalidate) recordAudio.invalidate();
     }
 
     private void addLogicToButton(TextView button, String manifestPermission, int permission) {

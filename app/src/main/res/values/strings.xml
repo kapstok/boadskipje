@@ -25,5 +25,4 @@
     <string name="permission_read_external_storage">Bestânnen lêze</string>
     <string name="permission_write_external_storage">Bestânnen skriuwe</string>
     <string name="permission_use_camera">Camera</string>
-    <string name="permission_record_audio">Audio</string>
 </resources>
