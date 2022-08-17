@@ -54,6 +54,7 @@ public class BarcodeAnalyzer implements ImageAnalysis.Analyzer {
                 .addOnSuccessListener(barcodes -> {
                     for (Barcode barcode : barcodes) {
                         MediaPlayer mediaPlayer = MediaPlayer.create(activity, R.raw.bliep);
+                        mediaPlayer.setOnCompletionListener(MediaPlayer::release);
                         mediaPlayer.start();
                         String value = barcode.getRawValue();
                         Map<String, String> register = this.register.getRegister(activity);

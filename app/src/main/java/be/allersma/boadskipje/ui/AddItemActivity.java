@@ -33,8 +33,5 @@ public class AddItemActivity extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         });
-
-        Intent intent = new Intent(this, PermissionActivity.class);
-        startActivity(intent);
     }
 }
