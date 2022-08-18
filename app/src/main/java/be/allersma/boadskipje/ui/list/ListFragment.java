@@ -3,24 +3,18 @@ package be.allersma.boadskipje.ui.list;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Debug;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import androidx.annotation.NonNull;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import be.allersma.boadskipje.BoadskipjeList;
+import be.allersma.boadskipje.persistence.BoadskipjeList;
 import be.allersma.boadskipje.R;
 import be.allersma.boadskipje.databinding.FragmentListBinding;
 import be.allersma.boadskipje.ui.AddItemActivity;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Map;
@@ -43,7 +37,7 @@ public class ListFragment extends Fragment {
         FloatingActionButton addItemButton = root.findViewById(R.id.add_item);
         addItemButton.setOnClickListener(this::addNewItem);
 
-        for (Map.Entry<String, Integer> entry : BoadskipjeList.getBoadskippen().entrySet()) {
+        for (Map.Entry<String, Integer> entry : BoadskipjeList.getBoadskippen(root.getContext()).entrySet()) {
             LinearLayout item = createNewEntry(itemList.getContext(), entry.getKey());
             itemList.addView(item);
         }
@@ -68,14 +62,14 @@ public class ListFragment extends Fragment {
         layout.setOrientation(LinearLayout.HORIZONTAL);
 
         TextView minButton = createClickableText(context, "-", view -> {
-            BoadskipjeList.removeBoadskip(boadskip);
+            BoadskipjeList.removeBoadskip(context, boadskip);
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, this.getClass(), null).commit();
             //getActivity().finish();
             //startActivity(getActivity().getIntent());
             //getActivity().overridePendingTransition(0,0);
         });
         TextView plusButton = createClickableText(context, "+", view -> {
-            BoadskipjeList.addBoadskip(boadskip);
+            BoadskipjeList.addBoadskip(context, boadskip);
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, this.getClass(), null).commit();
             //getActivity().finish();
             //startActivity(getActivity().getIntent());
@@ -112,8 +106,8 @@ public class ListFragment extends Fragment {
         int quantity;
 
         // Redundant?
-        if (BoadskipjeList.getBoadskippen().containsKey(text)) {
-            quantity = BoadskipjeList.getBoadskippen().get(text);
+        if (BoadskipjeList.getBoadskippen(context).containsKey(text)) {
+            quantity = BoadskipjeList.getBoadskippen(context).get(text);
         } else {
             quantity = 1;
         }

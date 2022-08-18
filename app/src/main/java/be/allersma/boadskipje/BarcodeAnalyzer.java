@@ -1,15 +1,14 @@
 package be.allersma.boadskipje;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
 import android.media.MediaPlayer;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageProxy;
 import be.allersma.boadskipje.persistence.BarcodeRegister;
+import be.allersma.boadskipje.persistence.BoadskipjeList;
 import be.allersma.boadskipje.ui.AddCodeActivity;
 import com.google.android.gms.tasks.Task;
 import com.google.mlkit.vision.barcode.BarcodeScanner;
@@ -60,7 +59,7 @@ public class BarcodeAnalyzer implements ImageAnalysis.Analyzer {
                         Map<String, String> register = this.register.getRegister(activity);
 
                         if (register.containsKey(value)) {
-                            BoadskipjeList.addBoadskip(register.get(value));
+                            BoadskipjeList.addBoadskip(activity, register.get(value));
                         } else {
                             Intent intent = new Intent(activity, AddCodeActivity.class);
                             intent.putExtra("code", value);

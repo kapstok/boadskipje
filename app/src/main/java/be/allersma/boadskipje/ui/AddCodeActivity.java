@@ -1,12 +1,11 @@
 package be.allersma.boadskipje.ui;
 
 import android.content.Intent;
-import android.view.Display;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import be.allersma.boadskipje.BoadskipjeList;
+import be.allersma.boadskipje.persistence.BoadskipjeList;
 import be.allersma.boadskipje.R;
 import be.allersma.boadskipje.persistence.BarcodeRegister;
 import com.google.android.material.textfield.TextInputLayout;
@@ -34,7 +33,7 @@ public class AddCodeActivity extends AppCompatActivity {
                 String boadskip = newItemElement.getText().toString();
                 BarcodeRegister register = new BarcodeRegister();
                 register.addToRegister(this, scannedCode, boadskip);
-                BoadskipjeList.addBoadskip(boadskip);
+                BoadskipjeList.addBoadskip(this, boadskip);
             }
 
             Intent intent = new Intent(this, MainActivity.class);

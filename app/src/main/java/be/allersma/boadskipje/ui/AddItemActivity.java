@@ -5,7 +5,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import be.allersma.boadskipje.BoadskipjeList;
+import be.allersma.boadskipje.persistence.BoadskipjeList;
 import be.allersma.boadskipje.R;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -26,7 +26,7 @@ public class AddItemActivity extends AppCompatActivity {
             }
 
             if (newItemElement.getText() != null && !newItemElement.getText().toString().trim().isEmpty()) {
-                BoadskipjeList.addBoadskip(newItemElement.getText().toString());
+                BoadskipjeList.addBoadskip(this, newItemElement.getText().toString());
             }
 
             Intent intent = new Intent(this, MainActivity.class);
