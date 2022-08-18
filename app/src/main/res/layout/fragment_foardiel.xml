@@ -20,17 +20,17 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_foardiel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="25dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/foreground"
-            app:layout_anchor="@id/foardiel_list"
-            app:layout_anchorGravity="bottom|end"
-            app:tint="@color/white"
-            app:srcCompat="@android:drawable/ic_input_add"
-            android:contentDescription="@string/add_boadskip"/>
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/add_foardiel"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="bottom|end"-->
+<!--            android:layout_marginEnd="25dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:backgroundTint="@color/foreground"-->
+<!--            app:layout_anchor="@id/foardiel_list"-->
+<!--            app:layout_anchorGravity="bottom|end"-->
+<!--            app:tint="@color/white"-->
+<!--            app:srcCompat="@android:drawable/ic_input_add"-->
+<!--            android:contentDescription="@string/add_boadskip"/>-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
